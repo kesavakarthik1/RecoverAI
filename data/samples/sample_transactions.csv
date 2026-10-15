@@ -1,0 +1,16 @@
+external_id,customer_ref,amount,currency,transaction_type,status,failure_reason,failure_category,failure_code,retry_count,payment_method,gateway,description
+TXN-SAMPLE-001,CUST-0001,8500.00,INR,payment,failed,Gateway timeout,temp_failure,ERR_GATEWAY_TIMEOUT,0,card,razorpay,
+TXN-SAMPLE-002,CUST-0002,25000.00,INR,payment,failed,Insufficient balance,insufficient_funds,ERR_INSUFFICIENT_FUNDS,1,upi,razorpay,
+TXN-SAMPLE-003,CUST-0003,3200.00,INR,checkout,abandoned,Session abandoned,temp_failure,,0,card,razorpay,Cart abandoned 4h ago
+TXN-SAMPLE-004,CUST-0004,12000.00,INR,subscription,failed,3DS authentication required,auth_required,ERR_AUTH_REQUIRED,0,card,razorpay,
+TXN-SAMPLE-005,CUST-0005,45000.00,INR,invoice,overdue,Invoice overdue by 15 days,temp_failure,,1,netbanking,razorpay,overdue_15_days
+TXN-SAMPLE-006,CUST-0006,7500.00,INR,payment,failed,Suspected fraud,fraud,ERR_FRAUD_DETECTED,0,card,razorpay,
+TXN-SAMPLE-007,CUST-0007,2200.00,INR,payment,failed,Card number invalid,invalid_details,ERR_INVALID_CARD,1,card,razorpay,
+TXN-SAMPLE-008,CUST-0008,18000.00,INR,payment,failed,Network error,temp_failure,ERR_NETWORK,0,upi,razorpay,
+TXN-SAMPLE-009,CUST-0009,5500.00,INR,checkout,abandoned,Session abandoned,temp_failure,,0,wallet,razorpay,Cart abandoned 2h ago
+TXN-SAMPLE-010,CUST-0010,92000.00,INR,payment,failed,Processor unavailable,temp_failure,ERR_PROCESSOR,0,netbanking,razorpay,
+TXN-SAMPLE-011,CUST-0001,4100.00,INR,subscription,failed,Gateway timeout,temp_failure,ERR_GATEWAY_TIMEOUT,2,card,razorpay,
+TXN-SAMPLE-012,CUST-0002,6700.00,INR,invoice,overdue,Invoice overdue by 30 days,temp_failure,,2,upi,razorpay,overdue_30_days
+TXN-SAMPLE-013,CUST-0003,15000.00,INR,payment,success,,,0,card,razorpay,
+TXN-SAMPLE-014,CUST-0004,33000.00,INR,payment,failed,Unknown error,unknown,,0,card,razorpay,
+TXN-SAMPLE-015,CUST-0005,9900.00,INR,checkout,abandoned,Session abandoned,temp_failure,,1,upi,razorpay,opted_out_customer

@@ -1,0 +1,83 @@
+# ── Secrets ─────────────────────────────────────────────────────────────────
+.env
+.env.local
+.env.production
+.env.*.local
+*.key
+*.pem
+secrets/
+
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+*.egg
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+*.pyo
+
+# ── Database (local dev only — never commit) ─────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+recoverai.db
+
+# ── Node.js ───────────────────────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn
+
+# ── Build outputs ────────────────────────────────────────────────────────────
+frontend/dist/
+backend/build/
+*.tsbuildinfo
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Test outputs ──────────────────────────────────────────────────────────────
+*.xml
+test_out.txt
+test_api_out.txt
+test_api_result.txt
+all_tests.txt
+alltest_final.txt
+all_int_tests.txt
+inttest.txt
+final_test_run.txt
+test_result.txt
+
+# ── Logs ────────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Docker volumes ───────────────────────────────────────────────────────────
+postgres_data/
+
+# ── Coverage ──────────────────────────────────────────────────────────────────
+coverage/
+.nyc_output/

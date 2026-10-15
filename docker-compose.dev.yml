@@ -1,0 +1,21 @@
+version: "3.9"
+# Local development override — uses SQLite, hot reload, no postgres needed
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/app
+    environment:
+      DATABASE_URL: sqlite+aiosqlite:///./recoverai.db
+      SYNC_DATABASE_URL: sqlite:///./recoverai.db
+      APP_ENV: development
+      DEBUG: "true"
+      AI_PROVIDER: rule_based
+      PAYMENT_PROVIDER: simulation
+      LOG_FORMAT: console
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
