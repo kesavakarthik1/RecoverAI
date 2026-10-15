@@ -17,6 +17,7 @@ os.environ["DATABASE_URL"] = "sqlite+aiosqlite:///:memory:"
 os.environ["SYNC_DATABASE_URL"] = "sqlite:///:memory:"
 os.environ["AI_PROVIDER"] = "rule_based"
 os.environ["PAYMENT_PROVIDER"] = "simulation"
+os.environ["AUTO_SEED_DEMO_DATA"] = "false"  # Tests manage their own fixtures
 
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from httpx import AsyncClient, ASGITransport

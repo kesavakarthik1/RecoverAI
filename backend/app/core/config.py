@@ -77,6 +77,11 @@ class Settings(BaseSettings):
     SYNTHETIC_SEED: int = 42
     SYNTHETIC_DEFAULT_COUNT: int = 100
 
+    # ── Auto-seed demo data on first startup ──────────────────────────────────
+    # Disable with AUTO_SEED_DEMO_DATA=false in .env for production deployments
+    # or when you want to start with a clean database.
+    AUTO_SEED_DEMO_DATA: bool = True
+
     @model_validator(mode="after")
     def _set_sync_url_from_async(self) -> "Settings":
         """Derive a synchronous DB URL from the async one for Alembic."""

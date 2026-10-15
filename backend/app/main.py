@@ -14,7 +14,7 @@ from slowapi.errors import RateLimitExceeded
 from slowapi.util import get_remote_address
 
 from app.core.config import settings
-from app.core.database import init_db
+from app.core.database import init_db, AsyncSessionLocal
 from app.core.exceptions import (
     RecoverAIException,
     recover_ai_exception_handler,
@@ -23,6 +23,7 @@ from app.core.exceptions import (
 )
 from app.core.logging import configure_logging, get_logger
 from app.api.v1.router import api_router
+from app.services.seed_data import maybe_seed_demo_data
 
 configure_logging()
 logger = get_logger(__name__)
@@ -41,8 +42,22 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
         ai_provider=settings.AI_PROVIDER,
         payment_provider=settings.PAYMENT_PROVIDER,
     )
+
+    # 1. Create all DB tables
     await init_db()
     logger.info("Database initialised")
+
+    # 2. Auto-seed demo data if DB is empty (first run)
+    if settings.AUTO_SEED_DEMO_DATA:
+        async with AsyncSessionLocal() as db:
+            seeded = await maybe_seed_demo_data(db)
+            if seeded:
+                logger.info(
+                    "Demo data seeded — dashboard is ready with 100 synthetic transactions"
+                )
+    else:
+        logger.info("Auto-seed disabled (AUTO_SEED_DEMO_DATA=false)")
+
     yield
     logger.info("RecoverAI shutting down")
 
